@@ -7,6 +7,8 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="styles.css">
+    
+    <script data-ad-client="ca-pub-4053676307950677" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
