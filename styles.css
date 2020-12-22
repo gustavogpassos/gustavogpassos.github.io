@@ -2,7 +2,11 @@
   font-family: Verdana, sans-serif;
 }
 
-
+#google_esf {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 .main-title, .main-text{ 
   text-align: center;
