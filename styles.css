@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 * {
-  font-family: Verdana, sans-serif;
+  font-family: 'Roboto', Verdana, sans-serif;
 }
 
 #google_esf {
@@ -45,4 +47,26 @@
   border-radius: 3px;
   min-width: 100px;
   text-align: center;
+}
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+
+.content-title {
+  font-size: 30px;
+}
+
+.content-image {
+  display: flex;
+  margin: auto;
+  max-width: 350px;
+  max-height: 468px;
+}
+.content-text {
+  text-align: left;
+  display: flex;
 }

@@ -1,8 +1,23 @@
 loadEventListeners();
 
 function loadEventListeners() {
-	document.addEventListener('DOMContentLoaded', function() { calctimeto(); });
+	//document.addEventListener('DOMContentLoaded', function() { calctimeto(); });
 };
+
+
+
+var d = new Date().getUTCDate();
+var m = new Date().getUTCMonth();
+var y = new Date().getFullYear();
+
+d +=1;
+m +=1;
+
+hoje = y+'-'+m+'-'+d;
+
+//console.log(hoje);
+
+document.getElementById('target-date').setAttribute('min',hoje);
 
 
 var timeTo = document.getElementById('target-date').value,
@@ -11,24 +26,36 @@ var timeTo = document.getElementById('target-date').value,
 		newYear = new Date('1.1.2020').getTime(),
 		startTimer = '';
 
-function calctimeto(finalDate) {
+function calctimeto(targetDate) {
     //console.log(finalDate);
     
     //var finalDate = new Date(date).getTime();
 
     clearInterval(startTimer);
 
-    if(typeof(finalDate) == 'undefined'){
+    if(typeof(targetDate) == 'undefined'){
         date = new Date(newYear).getTime();
     }else {
-        date = new Date(finalDate).getTime();
+        date = new Date(targetDate);
+        date.setTime( date.getTime() + date.getTimezoneOffset() * 60 * 1000 + (0) * 60 * 60 * 1000);
+        console.log(date);
+        var dataCerta = date.getTime();
+        
     }
 
-    function updateTimer(finalDate) {        
+    function updateTimer(finalDate) {    
+        
+        //finalDate.setTime( finalDate.getTime() + finalDate.getTimezoneOffset() * 60 * 1000 + (-3) * 60 * 60 * 1000)
 
-        var now = new Date().getTime();
+        var now = new Date();
 
-        var difference = date - now;
+        now.setTime(now.getTime() + now.getTimezoneOffset() * 60 * 1000 + (-3) * 60 * 60 * 1000);
+
+        //console.log(now);
+
+        var newNow = now.getTime();
+
+        var difference = finalDate - newNow;
 
         var days = Math.floor(difference / (1000 * 60 * 60 * 24));
         var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -43,7 +70,7 @@ function calctimeto(finalDate) {
         document.querySelector('.clock-seconds').innerHTML = seconds;
 
 
-        if(now >= date){
+        if(newNow >= targetDate){
 			clearInterval(startTimer);
 			document.querySelector('.clock-days').innerHTML = '0';
 			document.querySelector('.clock-hours').innerHTML = '0';
@@ -52,7 +79,7 @@ function calctimeto(finalDate) {
 		}
     }
 
-    startTimer = setInterval(function(){updateTimer(date);}, 1000);
+    startTimer = setInterval(function(){updateTimer(dataCerta);}, 1000);
     
 }
 
