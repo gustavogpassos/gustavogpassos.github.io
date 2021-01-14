@@ -131,10 +131,10 @@ function generatePassword() {
     } else if (passLenght < 8) {
         window.alert('O tamanho mínimo para a senha é 8 digitos');
     } else {
-        var shuffled = mainString.split('').sort(function () { return 0.5 - Math.random() }).join('');
+        //var shuffled = mainString.split('').sort(function () { return 0.5 - Math.random() }).join('');
         var genPassword = '';
         for (var i = 0; i <= passLenght; i++) {
-            genPassword += shuffled.charAt(Math.random() * passLenght);
+            genPassword += mainString.charAt(Math.random() * passLenght);
         }
         document.getElementById('generated-password').value = genPassword;
     }
