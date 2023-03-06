@@ -22,8 +22,6 @@ function renderRepos(repos) {
     var list = document.createElement("ul")
     list.className = "list-group"
     repos.map((repo) => {
-        console.log(repo)
-
         var itemLink = document.createElement("a")
         itemLink.href = "#"
         itemLink.addEventListener("click", getRepoInfo)
