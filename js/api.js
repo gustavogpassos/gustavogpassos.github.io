@@ -2,8 +2,6 @@ import { Octokit } from "https://cdn.skypack.dev/@octokit/rest"
 
 const app = new Octokit()
 
-console.log(app)
-
 const api = {
     searchUser: async (username) => {
         const response = await app.rest.users.getByUsername({ username })
