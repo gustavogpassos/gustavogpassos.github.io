@@ -1,8 +1,6 @@
 import { Octokit } from "https://cdn.skypack.dev/@octokit/rest"
 
-const app = new Octokit({
-    auth: "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",
-})
+const app = new Octokit()
 
 console.log(app)
 
