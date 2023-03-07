@@ -1,5 +1,5 @@
 import api from "./api.js"
-/*
+
 $(async () => {
     $("#loading").show()
     const search = $("#search").val()
@@ -13,23 +13,46 @@ $(async () => {
     }
     $("#loading").hide()
 })
-*/
+
 $("#repoDetail").on("click", async (data) => {
     console.log(data)
 })
 
 function renderRepos(repos) {
+    console.log(repos)
     repos.map((repo) => {
-        var itemLink = document.createElement("a")
-        itemLink.href = "#"
-        itemLink.addEventListener("click", getRepoInfo)
-        itemLink.id = repo.id
-        itemLink.innerHTML = repo.name
-        itemLink.className = "item-link card-title"
-        var listItem = document.createElement("div")
-        listItem.className = "card col col-3 m-1"
-        listItem.appendChild(itemLink)
-        $("#list-repos").append(listItem)
+        //criar link
+        var cardLink = document.createElement("a")
+        cardLink.href = "#"
+        cardLink.addEventListener("click", getRepoInfo)
+        cardLink.id = repo.id
+        cardLink.innerHTML = "Ver mais"
+        cardLink.className = "card-link position-absolute"
+        //titulo
+        var cardTitle = document.createElement("h5")
+        cardTitle.className = "card-title text-truncate"
+        cardTitle.setAttribute("alt", repo.name)
+        cardTitle.innerHTML = repo.name
+        //subtitulo
+        var cardSubtitle = document.createElement("h6")
+        cardSubtitle.className = "card-subtitle"
+        cardSubtitle.innerHTML = repo.language
+        //card-body
+        var cardBody = document.createElement("div")
+        cardBody.className = "card-body"
+        cardBody.appendChild(cardTitle)
+        cardBody.appendChild(cardSubtitle)
+        cardBody.appendChild(cardLink)
+        //card
+        var card = document.createElement("div")
+        card.className = "card p-2 h-100"
+        card.appendChild(cardBody)
+        //colunas
+        var colItem = document.createElement("div")
+        colItem.className = "col col-sm-4 p-1"
+        colItem.setAttribute("style", "min-height:150px")
+        colItem.appendChild(card)
+        $("#list-repos").append(colItem)
     })
 }
 
