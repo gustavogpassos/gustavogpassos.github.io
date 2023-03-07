@@ -19,21 +19,18 @@ $("#repoDetail").on("click", async (data) => {
 })
 
 function renderRepos(repos) {
-    var list = document.createElement("ul")
-    list.className = "list-group"
     repos.map((repo) => {
         var itemLink = document.createElement("a")
         itemLink.href = "#"
         itemLink.addEventListener("click", getRepoInfo)
         itemLink.id = repo.id
         itemLink.innerHTML = repo.name
-        itemLink.className = "item-link"
-        var listItem = document.createElement("li")
-        listItem.className = "list-group-item"
+        itemLink.className = "item-link card-title"
+        var listItem = document.createElement("div")
+        listItem.className = "card col col-4 ml-2"
         listItem.appendChild(itemLink)
-        list.appendChild(listItem)
+        $("#list-repos").append(listItem)
     })
-    $("#list-repos").append(list)
 }
 
 function getRepoInfo(element) {
