@@ -1,5 +1,5 @@
 import api from "./api.js"
-
+/*
 $(async () => {
     $("#loading").show()
     const search = $("#search").val()
@@ -13,7 +13,7 @@ $(async () => {
     }
     $("#loading").hide()
 })
-
+*/
 $("#repoDetail").on("click", async (data) => {
     console.log(data)
 })
@@ -27,7 +27,7 @@ function renderRepos(repos) {
         itemLink.innerHTML = repo.name
         itemLink.className = "item-link card-title"
         var listItem = document.createElement("div")
-        listItem.className = "card col col-4 ml-2"
+        listItem.className = "card col col-3 m-1"
         listItem.appendChild(itemLink)
         $("#list-repos").append(listItem)
     })
