@@ -39,15 +39,69 @@
                     </div>
                 </div>
                 <hr />
-                <div class="col col-12 mt-2 d-flex p-0">
-                    <div class="col col-12 p-0">
+                <div class="col col-12 mt-2 d-flex p-0 flex-wrap">
+                    <div class="col col-12 p-0" id="list-repos-main">
                         <div class="col col-12">
                             <h1 class="m-1">Lista de Repositórios</h1>
+                            <div class="d-flex flex-row col col-4 p-0 m-1">
+                                <input
+                                    type="text"
+                                    id="search-repo"
+                                    placeholder="buscar"
+                                    class="form-control mr-1"
+                                />
+                                <button
+                                    class="btn btn-primary mr-1"
+                                    id="search-repo-btn"
+                                >
+                                    Buscar
+                                </button>
+                                <button
+                                    class="btn btn-dark text-nowrap"
+                                    id="clear-filter-btn"
+                                >
+                                    Limpar filtros
+                                </button>
+                            </div>
                         </div>
                         <div
                             id="list-repos"
                             class="col col-12 d-flex flex-wrap mt-2"
                         ></div>
+                    </div>
+                    <div
+                        class="col col-12 p-0"
+                        style="display: none"
+                        id="detail-repo-main"
+                    >
+                        <div class="col col-12 d-flex">
+                            <div class="col col-2"></div>
+                            <div class="col col-8">
+                                <div class="col col-12">
+                                    <button class="btn btn-primary mt-3 mb-3" id="back-list">
+                                        Voltar
+                                    </button>
+                                </div>
+                                <div class="col col-12 d-flex flex-wrap">
+                                    <div class="card w-100 p-5">
+                                        <h1
+                                            id="repo-name"
+                                            class="card-title"
+                                        ></h1>
+                                        <h5
+                                            class="card-subtitle mb-2 text-muted"
+                                            id="repo-langs"
+                                        ></h4>
+                                        <div class="card-body">
+                                            <p id="commit-count"></p>
+                                            <p id="last-commit">
+                                                <strong>Último commit</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
